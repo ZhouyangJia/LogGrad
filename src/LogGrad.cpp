@@ -29,7 +29,7 @@ static cl::extrahelp MoreHelp(
 	"\tFor example, to run clang-smartlog on all files in a subtree of the\n"
 	"\tsource tree, use:\n"
 	"\n"
-	"\t  find path/in/subtree -name '*.cpp'|xargs clang-smartlog\n"
+	"\t  find path/in/subtree -name '*.cpp'|xargs clang-loggrad\n"
 	"\n"
 	"\tor using a specific build path:\n"
 	"\n"
@@ -45,7 +45,7 @@ static cl::OptionCategory ClangMytoolCategory("clang-loggrad options");
 static std::unique_ptr<opt::OptTable> Options(createDriverOptTable());
 
 
-static cl::opt<bool> FindLoggedSnippet("log-grad",
+static cl::opt<bool> FindLoggedSnippet("log-grade",
                                        cl::desc("Calculate log grad."),
                                        cl::cat(ClangMytoolCategory));
 
