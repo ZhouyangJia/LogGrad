@@ -5,7 +5,7 @@ Quantitative Assessment of Log Quality in Large-Scale Software
 *LogGrad* is a light weight log-quality assessment tool, which is based on Clang.
 Given a set of projects, *LogGrad* can automatically rank them by log quality.
 The basic idea of ranking is that to what extent the given project misses logs.
-The missing log are classified into 3 types, including project-specific logs, intra-domain important logs and inter-domain important logs.
+The missing logs are classified into 3 types, including project-specific logs, intra-domain important logs and inter-domain important logs.
 
 ### Usage
 

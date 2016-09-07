@@ -181,7 +181,7 @@ for t in range(1, 19):
 	print str(float(t)*0.05)+',',
 print
 for i in range(len(frm)):
-	print project_list[i],domain_list[i],
+	print project_list[i]+', '+domain_list[i]+',',
 	for t in range(1, 19):
 		print str("%.4f"%result[t][i][3])+',',
 	print 
@@ -195,7 +195,7 @@ for t in range(1, 19):
 	print str(float(t)*0.05)+',',
 print
 for i in range(len(frm)):
-	print project_list[i],domain_list[i],
+	print project_list[i]+', '+domain_list[i]+',',
 	for t in range(1, 19):
 		print str("%.4f"%result[t][i][5])+',',
 	print 
@@ -212,4 +212,73 @@ for i in range(len(frm)):
 	print project_list[i],domain_list[i],
 	for t in range(1, 19):
 		print str("%.4f"%result[t][i][7])+',',
+	print 
+
+print
+print
+
+print 'Inter-project log-missing rate in different confidence:'
+print 'Project, domain,',
+for t in range(1, 19):
+	print str(float(t)*0.05)+',',
+print
+for i in range(len(frm)):
+	print project_list[i]+', '+domain_list[i]+',',
+	for t in range(1, 19):
+		intradomain = result[t][i][5]
+		interdomain = result[t][i][7]
+		interproject = 0.0
+		if intradomain != 0 and interdomain != 0:
+			interproject = 2 * interdomain * intradomain / (interdomain + intradomain)
+		print str("%.4f"%interproject)+',',
+	print 
+
+domaindiff = {}
+domaindiffcnt = {}
+for i in range(len(frm)):
+	rate = result[0][i][1] / result[0][i][0]
+	if domaindiff.has_key(domain_list[i]):
+		domaindiff[domain_list[i]] += rate
+		domaindiffcnt[domain_list[i]] += 1
+	else:
+		domaindiff[domain_list[i]] = rate
+		domaindiffcnt[domain_list[i]] = 1
+
+for i in range(len(frm)):
+	diff = domaindiff[domain_list[i]]
+	diffcnt = domaindiffcnt[domain_list[i]]
+	averate = diff / diffcnt
+	rate = result[0][i][1] / result[0][i][0]
+	factor = abs(averate - rate)
+	print str("%.4f"%factor)+',',
+
+print
+
+print
+print
+
+print 'Log grade in different confidence:'
+print 'Project, domain, factor,',
+for t in range(1, 19):
+	print str(float(t)*0.05)+',',
+print
+for i in range(len(frm)):
+
+	diff = domaindiff[domain_list[i]]
+	diffcnt = domaindiffcnt[domain_list[i]]
+	averate = diff / diffcnt
+	rate = result[0][i][1] / result[0][i][0]
+	factor = abs(averate - rate)
+
+	print project_list[i]+', '+domain_list[i]+', '+str("%.4f"%factor)+',',
+
+
+	for t in range(1, 19):
+		intradomain = result[t][i][5]
+		interdomain = result[t][i][7]
+		interproject = 0.0
+		if intradomain != 0 and interdomain != 0:
+			interproject = 2 * interdomain * intradomain / (interdomain + intradomain)
+		loggrad = factor * (interproject + result[t][i][3])
+		print str("%.4f"%loggrad)+',',
 	print 
