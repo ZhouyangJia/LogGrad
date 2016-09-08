@@ -22,14 +22,14 @@ The missing logs are classified into 3 types, including project-specific logs, i
 - Generate *compile_commands.json*. More information about [compile_commands.json](http://clang.llvm.org/docs/JSONCompilationDatabase.html).
 ```sh
 cd test/
-tar zxvf bftpd-3.8.tar.gz
+tar zxvf bftpd-3.2.tar
 cd bftpd/
 ./configure
 bear make
 ```
 - Generate *compiled_files.def*, This file has all names of compiled source files.
 ```sh
-extract_command.pl compile_commands.json
+../../script/extract_command.pl compile_commands.json
 ```
 - Generate *function_rule_model.out*. Each line includes a 3-tuple, namely function name, called time and logged time.
 ```sh
@@ -42,5 +42,6 @@ mv function_rule_model.out bftpd.out
 ##### Assessment
 Each output file represents one project followed by a domain name.
 ```sh
+cd ../../script/
 python loggrad.py results/httpd.out httpd results/nginx.out httpd results/lighttpd.out httpd results/mongrel2.out httpd results/mysql.out database results/postgresql.out database results/berkeleydb.out database results/monetdb.out database
 ```
