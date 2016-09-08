@@ -21,6 +21,9 @@ The missing logs are classified into 3 types, including project-specific logs, i
 ##### Analyze log information
 - Generate *compile_commands.json*. More information about [compile_commands.json](http://clang.llvm.org/docs/JSONCompilationDatabase.html).
 ```sh
+cd test/
+tar zxvf bftpd-3.8.tar.gz
+cd bftpd/
 ./configure
 bear make
 ```
