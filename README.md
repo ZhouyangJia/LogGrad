@@ -1,5 +1,5 @@
 # LogGrad
-Quantitative Assessment of Log Quality in Large-Scale Software
+Quantitative Assessment of Log Quality in Large-Scale Software.
 
 ---
 
@@ -19,7 +19,7 @@ The missing logs are classified into 3 types, including project-specific logs, i
 - Compile Clang, and you will get clang-loggrad in bin path.
 
 ##### Analyze log information
-- Generate *compile_commands.json*. More infomation about [compile_commands.json](http://clang.llvm.org/docs/JSONCompilationDatabase.html).
+- Generate *compile_commands.json*. More information about [compile_commands.json](http://clang.llvm.org/docs/JSONCompilationDatabase.html).
 ```sh
 ./configure
 bear make
@@ -32,7 +32,7 @@ extract_command.pl compile_commands.json
 ```sh
 cat compiled_files.def | xargs clang-loggrad -log-grade
 ```
-- Remane the output file. Other output files are in script/results.
+- Rename the output file. Other output files are in script/results.
 ```sh
 mv function_rule_model.out bftpd.out
 ```
