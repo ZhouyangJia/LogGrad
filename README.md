@@ -1,6 +1,8 @@
 # LogGrad
 Quantitative Assessment of Log Quality in Large-Scale Software
 
+---
+
 ### Introduction
 *LogGrad* is a light weight log-quality assessment tool, which is based on Clang.
 Given a set of projects, *LogGrad* can automatically rank them by log quality.
@@ -14,7 +16,7 @@ The missing logs are classified into 3 types, including project-specific logs, i
 - Make new fold *clang-loggrad* in Clang tools directory, e.g., /home/guest/llvm-3.8/tools/clang/tools/clang-loggrad.
 - Extract source code to above new fold.
 - Add *add_clang_subdirectory(clang-loggrad)* in CMakeList.txt in Clang tools directory.
-- Compile Clang.
+- Compile Clang, and you will get clang-loggrad in bin path.
 
 ##### Analyze log information
 - Generate *compile_commands.json*. More infomation about [compile_commands.json](http://clang.llvm.org/docs/JSONCompilationDatabase.html).
