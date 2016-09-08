@@ -13,8 +13,8 @@ The missing logs are classified into 3 types, including project-specific logs, i
 
 ##### Compile
 - Download the source code.
-- Make new fold *clang-loggrad* in Clang tools directory, e.g., /home/guest/llvm-3.8/tools/clang/tools/clang-loggrad.
-- Extract source code to above new fold.
+- Create new folder *clang-loggrad* in Clang tools directory, e.g., /home/guest/llvm-3.8/tools/clang/tools/clang-loggrad.
+- Extract source code to above new folder.
 - Add *add_clang_subdirectory(clang-loggrad)* in CMakeList.txt in Clang tools directory.
 - Compile Clang, and you will get clang-loggrad in bin path.
 
