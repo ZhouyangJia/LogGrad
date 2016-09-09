@@ -12,11 +12,22 @@ The missing logs are classified into 3 types, including project-specific logs, i
 ### Usage
 
 ##### Compile
-- Download the source code.
-- Create new folder *clang-loggrad* in Clang tools directory, e.g., /home/guest/llvm-3.8/tools/clang/tools/clang-loggrad.
-- Extract source code to above new folder.
-- Add *add_clang_subdirectory(clang-loggrad)* in CMakeList.txt in Clang tools directory.
-- Compile Clang, and you will get clang-loggrad in bin path.
+- Change directory to Clang tools directory.
+```sh
+cd path/to/llvm-source-tree/tools/clang/tools
+```
+- Download source code.
+```sh
+git clone https://github.com/ZhouyangJia/LogGrad.git
+```
+- Add *add_subdirectory(LogGrad)* to CMakeList.txt.
+```sh
+echo "add_subdirectory(LogGrad)" >> CMakeLists.txt
+```
+- [Recompile Clang](http://llvm.org/docs/CMake.html) and try following command to test.
+```sh
+ls path/to/llvm-build/Release/bin/clang-loggrad
+```
 
 ##### Analyze log information
 - Generate *compile_commands.json*. More information about [compile_commands.json](http://clang.llvm.org/docs/JSONCompilationDatabase.html).
