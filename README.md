@@ -9,6 +9,8 @@ Given a set of projects, *LogGrad* can automatically rank them by log quality.
 The basic idea of ranking is that to what extent the given project misses logs.
 The missing logs are classified into 3 types, including project-specific logs, intra-domain important logs and inter-domain important logs.
 
+高质量的日志代码是软件故障诊断的重要依据。由于缺乏统一规范、开发人员不够重视等原因，现有软件中的日志质量参差不齐。针对这一问题，设计并实现了面向大规模软件的日志质量评估工具LogGrad，定量评估日志质量。LogGrad首先分析软件源码，采用与SmartLog相似的方法挖掘软件日志规则。之后，LogGrad检测源码中违反日志规则的代码段，并计算日志缺失率，即缺失日志的函数调用数量除以函数调用总数。
+
 ### Usage
 
 ##### Compile
